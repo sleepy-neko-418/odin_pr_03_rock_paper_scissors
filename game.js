@@ -1,22 +1,22 @@
 (function() {
-  let pairwiseScore = {
+  const pairwiseScore = {
     rock: {paper: 0, scissors: 1, rock: 0},
     paper: {scissors: 0, rock: 1, paper: 0},
     scissors: {rock: 0, paper: 1, scissors: 0},
   };
 
-  let pool = ["rock", "paper", "scissors"];
+  const choicePool = ["rock", "paper", "scissors"];
 
   let generateComputerChoice = function() {
     let index = Math.ceil(Math.random() * 99) % 3;
 
-    return pool[index];
+    return choicePool[index];
   }
 
   let getPlayerChoice = function() {
     let choice = "";
-    while (!pool.includes(choice)) {
-      choice = prompt("Please enter your choice (rock | paper | scissors): ");
+    while (!choicePool.includes(choice)) {
+      choice = prompt("Please enter your choice (rock | paper | scissors):");
     }
 
     return choice;
@@ -43,7 +43,7 @@
     console.log("\n\n");
   }
 
-  console.log("\n\n---Final Result---");
+  console.log("---Final Result---");
   if (playerScore == computerScore) {
     console.log("DRAW");
   } else {
